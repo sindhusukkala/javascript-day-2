@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Loops Deep Dive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Loop Comparison Guide</h1>
+
+    <h2> Summary Table</h2>
+    <table>
+        <tr>
+            <th>Loop Type</th>
+            <th>Best Use</th>
+            <th>Shines When</th>
+            <th>Potential Pitfalls</th>
+        </tr>
+        <tr>
+            <td><code>for</code></td>
+            <td>Iterating a fixed number of times</td>
+            <td>Index-based iteration</td>
+            <td>Can lead to off-by-one errors, infinite loops</td>
+        </tr>
+        <tr>
+            <td><code>while</code></td>
+            <td>Looping with unknown iteration count</td>
+            <td>Waiting for condition</td>
+            <td>Infinite loop risk if condition never false</td>
+        </tr>
+        <tr>
+            <td><code>do...while</code></td>
+            <td>Must run at least once</td>
+            <td>Input validation</td>
+            <td>Runs once even if condition is false</td>
+        </tr>
+        <tr>
+            <td><code>for...in</code></td>
+            <td>Iterating over object keys</td>
+            <td>Works on objects</td>
+            <td>Includes inherited keys, avoid for arrays</td>
+        </tr>
+        <tr>
+            <td><code>for...of</code></td>
+            <td>Iterating over iterables</td>
+            <td>Arrays, strings, maps</td>
+            <td>Does not work with plain objects</td>
+        </tr>
+    </table>
+
+    <h2> Code Examples</h2>
+
+    <div class="example">
+        <strong>for loop:</strong>
+        <pre><code>for (let i = 0; i &lt; 5; i++) {
+  console.log("Count:", i);
+}</code></pre>
+    </div>
+
+    <div class="example">
+        <strong>while loop:</strong>
+        <pre><code>let x = 0;
+while (x &lt; 5) {
+  console.log("x is", x);
+  x++;
+}</code></pre>
+    </div>
+
+    <div class="example">
+        <strong>do...while loop:</strong>
+        <pre><code>let y = 0;
+do {
+  console.log("y is", y);
+  y++;
+} while (y &lt; 5);</code></pre>
+    </div>
+
+    <div class="example">
+        <strong>for...in loop (for objects):</strong>
+        <pre><code>const person = { name: "Alice", age: 25 };
+for (let key in person) {
+  console.log(key, ":", person[key]);
+}</code></pre>
+    </div>
+
+    <div class="example">
+        <strong>for...of loop (for arrays, strings):</strong>
+        <pre><code>const fruits = ["X", "Y", "Z"];
+for (let fruit of fruits) {
+  console.log(fruit);
+}</code></pre>
+    </div>
+
+    
+    <script src="loops.js"></script>
+</body>
+
+</html>

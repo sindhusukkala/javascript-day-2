@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input[type="number"] {
+            width: 80px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 6px 12px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Multiplication Table Generator</h1>
+
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" min="1" value="5">
+    <button onclick="generateTable()">Generate</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        function generateTable() {
+            const n = parseInt(document.getElementById("numberInput").value);
+            let result = `Multiplication Table (${n} x ${n}):\n\n`;
+
+            
+            result += "    ";
+            for (let i = 1; i <= n; i++) {
+                result += i.toString().padStart(4);
+            }
+            result += "\n" + "-".repeat(4 * (n + 1)) + "\n";
+
+            
+            for (let i = 1; i <= n; i++) {
+                let row = i.toString().padStart(3) + " |";
+                for (let j = 1; j <= n; j++) {
+                    row += (i * j).toString().padStart(4);
+                }
+                result += row + "\n";
+            }
+
+            document.getElementById("output").textContent = result;
+        }
+
+        
+        window.onload = generateTable;
+    </script>
+
+</body>
+
+</html>
